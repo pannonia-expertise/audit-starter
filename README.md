@@ -1,15 +1,10 @@
 # Auditing Mechanism
 
-To use auditing, you need to provide bean of type AuditUsernameProvider, which will provide current's user username in ThreadLocal manner. 
+Audit starter module provides mechanism for auditing write operations on database. 
+Default implementation of type AuditUsernameProvider - PrincipalUsernameProvider, will provide current's user name from principal (using spring security) in ThreadLocal manner.  
+To override it, one just need to provide custom implementation. 
 
-> If project is also using resource server (v: 2.1.0 or above), this bean can be created like following:
-```java
-public AuditUsernameProvider provider() {  
-   return ResourceServerUsernameProvider::getUsername;  
-}
-```
-
-After bean has been provided, auditing system is used by implementing Auditable interface in entity, adding AuditListener entity listener, and embeded Audit class object.
+After AuditUsernameProvider bean has been provided, auditing system is used by implementing Auditable interface in entity, adding AuditListener entity listener, and embeded Audit class object.
 ```java
 @Getter  
 @Setter  
