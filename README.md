@@ -1,7 +1,7 @@
 # Auditing Mechanism
 
 Audit starter module provides mechanism for auditing write operations on database. 
-Default implementation of type AuditUsernameProvider - PrincipalUsernameProvider, will provide current's user name from principal (using spring security) in ThreadLocal manner.  
+Default implementation of type AuditUsernameProvider - PrincipalUsernameProvider will provide current's user name from principal (using spring security) in ThreadLocal manner.  
 To override it, one just need to provide custom implementation. 
 
 After AuditUsernameProvider bean has been provided, auditing system is used by implementing Auditable interface in entity, adding AuditListener entity listener, and embeded Audit class object.
