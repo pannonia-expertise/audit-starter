@@ -1,3 +1,7 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/pannonia-expertise/audit-starter/badge.svg)](https://snyk.io/test/github/pannonia-expertise/audit-starter)
+
+pannonia-expertise/audit-starter:pom.xml
+
 # Auditing Mechanism
 
 Audit starter module provides mechanism for auditing write operations on database. 
