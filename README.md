@@ -1,4 +1,4 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/pannonia-expertise/audit-starter/badge.svg)](https://snyk.io/test/github/pannonia-expertise/audit-starter) [![Maintainability](https://api.codeclimate.com/v1/badges/9c8903dda63db997c66c/maintainability)](https://codeclimate.com/github/pannonia-expertise/audit-starter/maintainability)
+[![Known Vulnerabilities](https://snyk.io/test/github/pannonia-expertise/audit-starter/badge.svg)](https://snyk.io/test/github/pannonia-expertise/audit-starter)  [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.pannoniaexpertise%3Aaudit-starter&metric=coverage)](https://sonarcloud.io/dashboard?id=com.pannoniaexpertise%3Aaudit-starter) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=com.pannoniaexpertise%3Aaudit-starter&metric=bugs)](https://sonarcloud.io/dashboard?id=com.pannoniaexpertise%3Aaudit-starter) [![Maintainability](https://api.codeclimate.com/v1/badges/9c8903dda63db997c66c/maintainability)](https://codeclimate.com/github/pannonia-expertise/audit-starter/maintainability)
 
 
 
