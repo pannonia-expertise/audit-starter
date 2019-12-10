@@ -14,11 +14,11 @@ import lombok.Setter;
  * Add it to entity that needs to be audited with @Embedded annotation.
  * [ @Embedded private Audit audit = new Audit() ]
  * When creating SQL table following fields should be added for auditing.
- * </ br>
- * (created_on        bigint                    NOT NULL, </ br>
- * created_by        character varying(255)    NOT NULL, </ br>
- * updated_on        bigint, </ br>
- * updated_by        character varying(255)) </ br>
+ *
+ * (created_on        bigint                    NOT NULL,
+ * created_by        character varying(255)    NOT NULL,
+ * updated_on        bigint,
+ * updated_by        character varying(255))
  */
 
 
@@ -28,7 +28,7 @@ import lombok.Setter;
 public class Audit implements Serializable {
 
     /**
-     * Username to be used if {@link AuditUsernameProvider::useSystemUser} is set to true.
+     * Username to be used if {@link Audit#useSystemUser} is set to true.
      */
     public static final String SYSTEM_USERNAME = "system";
 
@@ -54,9 +54,10 @@ public class Audit implements Serializable {
     private String updatedBy;
 
     /**
-     * Force audit mechanism to use 'system' user. <br />
+     * Force audit mechanism to use 'system' user.
      * NOTE: This method is using thread local storage,
      * it will apply to every audit update until end of thread.
+     * @param useSystem boolean
      */
     public static void useSystemUser(boolean useSystem) {
         useSystemUser.set(useSystem);
