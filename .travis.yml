@@ -1,3 +1,4 @@
+language: java
 addons:
   sonarcloud:
     organization: "pannonia-expertise"
