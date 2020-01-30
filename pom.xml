@@ -11,7 +11,7 @@
 
     <groupId>com.github.pannonia-expertise</groupId>
     <artifactId>audit-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>Audit starter</name>
     <description>Starter project considering the audit mechanism</description>
 

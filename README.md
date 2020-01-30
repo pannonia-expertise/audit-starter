@@ -22,3 +22,15 @@ public class TheAuditedEntity extends BaseEntity implements Auditable {
     Audit audit;
 }
 ```
+
+### Adding custom UsernameProvider implementation
+
+If needed a custom username provider can be added as a Spring Bean that implements 
+UsernameProvider interface. For reference see:
+`
+ com.pannoniaexpertise.audit.usernameProviders.impl.ClientDetailsUsernameProvider
+` 
+or
+`
+ com.pannoniaexpertise.audit.usernameProviders.impl.UserDetailsUsernameProvider
+`
