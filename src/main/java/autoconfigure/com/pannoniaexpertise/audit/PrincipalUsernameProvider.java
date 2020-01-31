@@ -1,14 +1,19 @@
 package autoconfigure.com.pannoniaexpertise.audit;
 
 import com.pannoniaexpertise.audit.AuditUsernameProvider;
-
+import com.pannoniaexpertise.audit.usernameProviders.UsernameProvider;
+import java.util.List;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.oauth2.provider.ClientDetails;
 
 public class PrincipalUsernameProvider implements AuditUsernameProvider {
+
+  private final List<UsernameProvider> usernameProviders;
+
+  public PrincipalUsernameProvider(final List<UsernameProvider> usernameProviders) {
+    this.usernameProviders = usernameProviders;
+  }
 
   @Override
   public String getUsername() {
@@ -25,12 +30,19 @@ public class PrincipalUsernameProvider implements AuditUsernameProvider {
       throw new UsernameProviderException("User not found in SecurityContext");
     }
 
-    if (principal instanceof UserDetails) {
-      return ((UserDetails) principal).getUsername();
-    } else if (principal instanceof ClientDetails) {
-      return ((ClientDetails) principal).getClientId();
+    for (UsernameProvider usernameProvider : usernameProviders) {
+      if (usernameProvider.support(principal)) {
+        return usernameProvider.getUsername(principal);
+      }
     }
 
-    return (String) principal;
+    try {
+      return (String) principal;
+    } catch (ClassCastException e) {
+      throw new UsernameProviderException(
+          "Could not cast principal to string, please provide a custom "
+              + principal.getClass().getSimpleName()
+              + " implementation of UsernameProvider");
+    }
   }
 }
