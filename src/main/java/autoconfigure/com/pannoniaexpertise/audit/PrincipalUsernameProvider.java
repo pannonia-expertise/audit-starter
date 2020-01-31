@@ -36,6 +36,13 @@ public class PrincipalUsernameProvider implements AuditUsernameProvider {
       }
     }
 
-    return (String) principal;
+    try {
+      return (String) principal;
+    } catch (ClassCastException e) {
+      throw new UsernameProviderException(
+          "Could not cast principal to string, please provide a custom "
+              + principal.getClass().getSimpleName()
+              + " implementation of UsernameProvider");
+    }
   }
 }
